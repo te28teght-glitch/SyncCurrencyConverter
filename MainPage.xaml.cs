@@ -22,9 +22,17 @@ public partial class MainPage : ContentPage
 	}
 	private void OnCounterClickedRound(object? sender, EventArgs e)
 	{
-		roundCount++;	
-		Rounded.HeightRequest = 40 + (roundCount * 10);
-
+		roundCount++;
+		double newHeight = 40 + (roundCount * 10);	
+		if (newHeight <=200)
+		{
+			Rounded.HeightRequest = newHeight;
+			Rounded.Text = $"Round {roundCount}";
+		}
+		else
+		{
+			Rounded.Text = "Max!";
+		}
 		SemanticScreenReader.Announce(Rounded.Text);
 	}
 }
