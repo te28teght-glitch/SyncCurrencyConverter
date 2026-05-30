@@ -3,7 +3,7 @@
 public partial class MainPage : ContentPage
 {
 	int count = 0;
-
+	int roundCount = 0;
 	public MainPage()
 	{
 		InitializeComponent();
@@ -19,5 +19,12 @@ public partial class MainPage : ContentPage
 			CounterBtn.Text = $"Clicked {count} times";
 
 		SemanticScreenReader.Announce(CounterBtn.Text);
+	}
+	private void OnCounterClickedRound(object? sender, EventArgs e)
+	{
+		roundCount++;	
+		Rounded.HeightRequest = 40 + (roundCount * 10);
+
+		SemanticScreenReader.Announce(Rounded.Text);
 	}
 }
