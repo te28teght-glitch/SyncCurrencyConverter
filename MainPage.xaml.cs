@@ -21,16 +21,15 @@ namespace SyncCurrencyConverter
             
             if (selectedButton != null)
             {
-                selectedButton.BackgroundColor = Color.FromArgb("#FF860CB6");
+                selectedButton.BackgroundColor = Colors.Transparent;
                 selectedButton.TextColor = Colors.White;
             }
             
-            clickedButton.BackgroundColor = Colors.White;
-            clickedButton.TextColor = Color.FromArgb("#FF860CB6");
+            clickedButton.BackgroundColor = Color.FromArgb("#FF860CB6");
+            clickedButton.TextColor = Colors.White;
             
             selectedButton = clickedButton;
-            
-            statusLabel.Text = $"Выбрана: {clickedButton.Text}";
+
         }
     }
 }

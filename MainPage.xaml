@@ -3,55 +3,61 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SyncCurrencyConverter.MainPage">
     
-    <Grid RowDefinitions="Auto, Auto, Auto, Auto"
-          ColumnDefinitions="*, *"
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="BorderColor" Value="White"/>
+            <Setter Property="BorderWidth" Value="2"/>
+            <Setter Property="CornerRadius" Value="8"/>
+        </Style>
+    </ContentPage.Resources>
+    
+    <!-- 2 строки, 3 колонки = 6 кнопок -->
+    <Grid RowDefinitions="Auto, Auto"
+          ColumnDefinitions="*, *, *"
           RowSpacing="10"
           ColumnSpacing="10"
           Padding="20">
         
-        <Button x:Name="btn1"
-                Text="Кнопка 1"
-                BackgroundColor="#FF860CB6"
-                TextColor="White" 
-                BorderColor="White"
-                BorderWidth="2"
-                CornerRadius="8"
+        <!-- СТРОКА 1 -->
+        <Button x:Name="btn1" 
+                Text="$" 
+                Grid.Row="0" 
+                Grid.Column="0" 
                 Clicked="OnButtonClicked"/>
         
-        <Button x:Name="btn2"
-                Text="Кнопка 2"
-                BackgroundColor="#FF860CB6"
-                TextColor="White" 
-                BorderColor="White"
-                BorderWidth="2"
-                CornerRadius="8"
+        <Button x:Name="btn2" 
+                Text="€" 
+                Grid.Row="0" 
+                Grid.Column="1" 
                 Clicked="OnButtonClicked"/>
         
-        <Button x:Name="btn3"
-                Text="Кнопка 3"
-                BackgroundColor="#FF860CB6"
-                TextColor="White" 
-                BorderColor="White"
-                BorderWidth="2"
-                CornerRadius="8"
+        <Button x:Name="btn3" 
+                Text="¥" 
+                Grid.Row="0" 
+                Grid.Column="2" 
                 Clicked="OnButtonClicked"/>
         
-        <Button x:Name="btn4"
-                Text="Кнопка 4"
-                BackgroundColor="#FF860CB6"
-                TextColor="White" 
-                BorderColor="White"
-                BorderWidth="2"
-                CornerRadius="8"
+        <!-- СТРОКА 2 -->
+        <Button x:Name="btn4" 
+                Text="₩" 
+                Grid.Row="1" 
+                Grid.Column="0" 
                 Clicked="OnButtonClicked"/>
         
-        <Label x:Name="statusLabel"
-               Text="Ничего не выбрано"
-               Grid.Row="2"
-               Grid.Column="0"
-               Grid.ColumnSpan="2"
-               HorizontalOptions="Center"
-               Margin="0,20,0,0"/>
+        <Button x:Name="btn5" 
+                Text="₴" 
+                Grid.Row="1" 
+                Grid.Column="1" 
+                Clicked="OnButtonClicked"/>
+        
+        <Button x:Name="btn6" 
+                Text="฿" 
+                Grid.Row="1" 
+                Grid.Column="2" 
+                Clicked="OnButtonClicked"/>
+        
         
     </Grid>
 </ContentPage>
