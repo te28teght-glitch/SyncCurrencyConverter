@@ -1,38 +1,26 @@
-﻿namespace SyncCurrencyConverter;
+﻿using Microsoft.Maui.Controls;
+
+namespace SyncCurrencyConverter;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
-	int roundCount = 0;
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+    public MainPage()
+    {
+        InitializeComponent();
+    }
 
-	private void OnCounterClicked(object? sender, EventArgs e)
-	{
-		count++;
-
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
-	private void OnCounterClickedRound(object? sender, EventArgs e)
-	{
-		roundCount++;
-		double newHeight = 40 + (roundCount * 10);	
-		if (newHeight <=200)
-		{
-			Rounded.HeightRequest = newHeight;
-			Rounded.Text = $"Round {roundCount}";
-		}
-		else
-		{
-			Rounded.Text = "Max!";
-		}
-		SemanticScreenReader.Announce(Rounded.Text);
-	}
+    private void OnRadioCheckedChanged(object sender, CheckedChangedEventArgs e)
+    {
+        if (e.Value) 
+        {
+            RadioButton selected = (RadioButton)sender;
+            selected.BackgroundColor = Colors.DodgerBlue;
+            selected.TextColor = Colors.White;
+        }
+        else 
+        {
+            RadioButton deselected = (RadioButton)sender;
+            deselected.BackgroundColor = Colors.Transparent;
+        }
+    }
 }
