@@ -1,26 +1,36 @@
 ﻿using Microsoft.Maui.Controls;
+using System;
 
-namespace SyncCurrencyConverter;
-
-public partial class MainPage : ContentPage
+namespace SyncCurrencyConverter
 {
-    public MainPage()
+    public partial class MainPage : ContentPage
     {
-        InitializeComponent();
-    }
+        private Button selectedButton;
 
-    private void OnRadioCheckedChanged(object sender, CheckedChangedEventArgs e)
-    {
-        if (e.Value) 
+        public MainPage()
         {
-            RadioButton selected = (RadioButton)sender;
-            selected.BackgroundColor = Colors.DodgerBlue;
-            selected.TextColor = Colors.White;
+            InitializeComponent();
         }
-        else 
+
+        private void OnButtonClicked(object sender, EventArgs e)
         {
-            RadioButton deselected = (RadioButton)sender;
-            deselected.BackgroundColor = Colors.Transparent;
+            Button clickedButton = (Button)sender;
+            
+            if (selectedButton == clickedButton)
+                return;
+            
+            if (selectedButton != null)
+            {
+                selectedButton.BackgroundColor = Color.FromArgb("#FF860CB6");
+                selectedButton.TextColor = Colors.White;
+            }
+            
+            clickedButton.BackgroundColor = Colors.White;
+            clickedButton.TextColor = Color.FromArgb("#FF860CB6");
+            
+            selectedButton = clickedButton;
+            
+            statusLabel.Text = $"Выбрана: {clickedButton.Text}";
         }
     }
 }
