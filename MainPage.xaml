@@ -11,53 +11,50 @@
             <Setter Property="BorderWidth" Value="2"/>
             <Setter Property="CornerRadius" Value="8"/>
         </Style>
+        
+        <Style TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="PlaceholderColor" Value="LightGray"/>
+        </Style>
     </ContentPage.Resources>
     
-    <!-- 2 строки, 3 колонки = 6 кнопок -->
-    <Grid RowDefinitions="Auto, Auto"
-          ColumnDefinitions="*, *, *"
-          RowSpacing="10"
-          ColumnSpacing="10"
-          Padding="20">
+    <VerticalStackLayout Spacing="15" 
+                         Padding="20"
+                         Margin="0, 50, 0, 0">  
+
+        <Entry x:Name="amountEntry"
+               Placeholder="Введите сумму..."
+               Keyboard="Numeric"
+               FontSize="16"
+               TextChanged="OnEntryTextChanged"
+               />
+        <Entry x:Name="currencySymbolEntry"
+               Placeholder=""
+               Keyboard="Numeric"
+               FontSize="16"
+               IsReadOnly="True"
+               BackgroundColor="#33000000"
+               />
         
-        <!-- СТРОКА 1 -->
-        <Button x:Name="btn1" 
-                Text="$" 
-                Grid.Row="0" 
-                Grid.Column="0" 
-                Clicked="OnButtonClicked"/>
+        <Grid RowDefinitions="Auto, Auto"
+              ColumnDefinitions="*, *"
+              RowSpacing="10"
+              ColumnSpacing="10"
+              Margin="0, 20, 0, 0">  
+            
+            <Button x:Name="btn1" Text="$" Grid.Row="0" Grid.Column="0" Clicked="OnButtonClicked"/>
+            <Button x:Name="btn2" Text="€" Grid.Row="0" Grid.Column="1" Clicked="OnButtonClicked"/>
+            <Button x:Name="btn3" Text="¥" Grid.Row="1" Grid.Column="0" Clicked="OnButtonClicked"/>
+            <Button x:Name="btn4" Text="฿" Grid.Row="1" Grid.Column="1" Clicked="OnButtonClicked"/>
+            
+        </Grid>
         
-        <Button x:Name="btn2" 
-                Text="€" 
-                Grid.Row="0" 
-                Grid.Column="1" 
-                Clicked="OnButtonClicked"/>
+        <Label x:Name="statusLabel" 
+               Text="Ничего не выбрано" 
+               HorizontalOptions="Center"
+               TextColor="White"
+               Margin="0, 20, 0, 0"/>
         
-        <Button x:Name="btn3" 
-                Text="¥" 
-                Grid.Row="0" 
-                Grid.Column="2" 
-                Clicked="OnButtonClicked"/>
-        
-        <!-- СТРОКА 2 -->
-        <Button x:Name="btn4" 
-                Text="₩" 
-                Grid.Row="1" 
-                Grid.Column="0" 
-                Clicked="OnButtonClicked"/>
-        
-        <Button x:Name="btn5" 
-                Text="₴" 
-                Grid.Row="1" 
-                Grid.Column="1" 
-                Clicked="OnButtonClicked"/>
-        
-        <Button x:Name="btn6" 
-                Text="฿" 
-                Grid.Row="1" 
-                Grid.Column="2" 
-                Clicked="OnButtonClicked"/>
-        
-        
-    </Grid>
+    </VerticalStackLayout>
 </ContentPage>
