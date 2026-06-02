@@ -12,9 +12,11 @@ namespace SyncCurrencyConverter
         {
             InitializeComponent();
             
+            // Подписываем событие для поля ввода
             amountEntry.TextChanged += OnEntryTextChanged;
         }
 
+        // Событие при изменении текста в поле ввода
         private void OnEntryTextChanged(object sender, TextChangedEventArgs e)
         {
             string inputValue = e.NewTextValue;
@@ -66,7 +68,7 @@ namespace SyncCurrencyConverter
             
             // Устанавливаем символ валюты во второе поле
             currencySymbolEntry.Text = selectedButton.Text;
-            
+    
         }
     }
 }

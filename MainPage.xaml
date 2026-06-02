@@ -66,5 +66,10 @@
             
         </Grid>
         
+        <Label x:Name="statusLabel" 
+               HorizontalOptions="Center"
+               TextColor="White"
+               Margin="0, 20, 0, 0"/>
+        
     </VerticalStackLayout>
 </ContentPage>
