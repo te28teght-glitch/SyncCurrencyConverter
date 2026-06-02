@@ -6,45 +6,43 @@ namespace SyncCurrencyConverter
     public partial class MainPage : ContentPage
     {
         private Button selectedButton;
+        private double currentAmount = 0;
 
         public MainPage()
         {
             InitializeComponent();
             
-            // Подписываем событие для поля ввода
             amountEntry.TextChanged += OnEntryTextChanged;
         }
 
-        // Событие при изменении текста в поле ввода
         private void OnEntryTextChanged(object sender, TextChangedEventArgs e)
         {
-            string inputValue = e.NewTextValue; // Получаем новый текст
-            string inputSum = e.NewTextValue;
+            string inputValue = e.NewTextValue;
+            
             if (string.IsNullOrEmpty(inputValue))
             {
                 statusLabel.Text = "Введите сумму в рублях...";
+                currentAmount = 0;
                 return;
-            }
-
-            if ()
-            {
-                
             }
             
             if (double.TryParse(inputValue, out double amount))
             {
+                currentAmount = amount;
+                
                 if (selectedButton != null)
                 {
-                    statusLabel.Text = $"Выбрана: {selectedButton.Text}, Сумма: {amount} ₽";
+                    statusLabel.Text = $"{amount} ₽ → {selectedButton.Text}";
                 }
                 else
                 {
-                    statusLabel.Text = $"Сумма: {amount} ₽. Выберите валюту";
+                    statusLabel.Text = $"{amount} ₽. Выберите валюту";
                 }
             }
             else
             {
                 statusLabel.Text = "Введите корректное число!";
+                currentAmount = 0;
             }
         }
 
@@ -66,7 +64,18 @@ namespace SyncCurrencyConverter
             
             selectedButton = clickedButton;
             
-    
+            // Устанавливаем символ валюты во второе поле
+            currencySymbolEntry.Text = selectedButton.Text;
+            
+            // Обновляем статус
+            if (currentAmount > 0)
+            {
+                statusLabel.Text = $"{currentAmount} ₽ → {selectedButton.Text}";
+            }
+            else
+            {
+                statusLabel.Text = $"Выбрана валюта: {selectedButton.Text}. Введите сумму";
+            }
         }
     }
 }

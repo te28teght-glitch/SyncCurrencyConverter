@@ -22,6 +22,12 @@
     <VerticalStackLayout Spacing="15" 
                          Padding="20"
                          Margin="0, 50, 0, 0">  
+        <Frame x:Name="currencyFrame1"
+                BorderColor="White"
+                CornerRadius="8"
+                Padding="0"
+                Margin="0"
+                BackgroundColor="#33000000">
 
         <Entry x:Name="amountEntry"
                Placeholder="Введите сумму..."
@@ -29,13 +35,23 @@
                FontSize="16"
                TextChanged="OnEntryTextChanged"
                />
+        </Frame> 
+        <Frame x:Name="currencyFrame"
+                BorderColor="White"
+                CornerRadius="8"
+                Padding="0"
+                Margin="0"
+                BackgroundColor="#33000000">
+                
         <Entry x:Name="currencySymbolEntry"
-               Placeholder=""
-               Keyboard="Numeric"
-               FontSize="16"
-               IsReadOnly="True"
-               BackgroundColor="#33000000"
-               />
+                Placeholder="Выберите валюту"
+                FontSize="16"
+                IsReadOnly="True"
+                BackgroundColor="Transparent"
+                TextColor="White"
+                Margin="10, 8"/>
+        
+        </Frame>
         
         <Grid RowDefinitions="Auto, Auto"
               ColumnDefinitions="*, *"
