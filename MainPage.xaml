@@ -66,11 +66,5 @@
             
         </Grid>
         
-        <Label x:Name="statusLabel" 
-               Text="Ничего не выбрано" 
-               HorizontalOptions="Center"
-               TextColor="White"
-               Margin="0, 20, 0, 0"/>
-        
     </VerticalStackLayout>
 </ContentPage>
