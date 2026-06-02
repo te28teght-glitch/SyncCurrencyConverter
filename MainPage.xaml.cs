@@ -67,15 +67,6 @@ namespace SyncCurrencyConverter
             // Устанавливаем символ валюты во второе поле
             currencySymbolEntry.Text = selectedButton.Text;
             
-            // Обновляем статус
-            if (currentAmount > 0)
-            {
-                statusLabel.Text = $"{currentAmount} ₽ → {selectedButton.Text}";
-            }
-            else
-            {
-                statusLabel.Text = $"Выбрана валюта: {selectedButton.Text}. Введите сумму";
-            }
         }
     }
 }
